@@ -1,0 +1,77 @@
+@(engineAddress:String)
+@import models._
+<!DOCTYPE html>
+<!--
+	        __   __
+	_____ _|  | |  |   ____ ___ __
+	\__    |  | |  |  /  _ \   |  |
+	 / __  |  |_|  |_(  |_| )___  |
+	(____  /____/____/\____// ____|
+	     \/                 \/
+	     
+	     Copyright Alloy Technologies, Inc.
+-->
+<html>
+    <head>
+        <title>Scala Jeopardy</title>
+
+        <link rel="shortcut icon" href="@routes.Assets.at("img/favicon.ico")" type="image/x-icon"/>
+        <link rel="icon" href="@routes.Assets.at("img/favicon.ico")" type="image/x-icon"/>
+
+        <meta name="google" value="notranslate" />
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+				<link rel="stylesheet" media="screen" href="@routes.Assets.at("style/jeopardy.core.lib.css")" />
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("style/jeopardy.core.ui.css")" />
+
+				<script type="text/javascript">
+
+  					// Let the library know where WebSocketMain.swf is:
+  					WEB_SOCKET_SWF_LOCATION = "/assets/swf/WebSocketMain.swf";
+
+  			</script>
+        <script type="text/javascript">
+            function getEngineUrl() { return "@engineAddress";}
+        </script>
+
+    </head>
+    <body onload="$('.loader').hide(); $('.loader img').hide(); init_and_bind();">
+
+      <div class="loader">
+        <img class="spin" src="@routes.Assets.at("img/icons/load-spin.gif")" />
+        <img class="spin2" src="@routes.Assets.at("img/icons/load-spin2.gif")" />
+      </div>
+
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner bg-nav">
+          <div class="container-fluid">
+            
+            <i class="logo-chz"></i>
+            
+            <ul class="nav pull-right">
+              <li>
+                <a href="javascript:;" id="nav-engine" class="cursor-none"><i class="icon-nav-engine"></i></a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+
+    <!--begin alloyapp views-->
+    <div class="body_container">
+    
+    </div>
+    <!--./alloyapp views-->
+
+    <!--Core scripts-->
+    <script src="@routes.Assets.at("js/jeopardy.vendor.lib.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("js/jeopardy.engine.js")" type="text/javascript"></script>
+    <!--UI Scripts-->
+    <script src="@routes.Assets.at("js/jeopardy.core.ui.js")" type="text/javascript"></script>
+
+  </body>
+</html>
